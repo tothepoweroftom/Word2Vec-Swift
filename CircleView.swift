@@ -9,7 +9,11 @@
 import UIKit
 import Spring
 
-class CircleView: SpringView {
+protocol CircleViewDelegate: class {
+    func circleTapped(_ sender: CircleView)
+}
+
+class CircleView: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -19,9 +23,10 @@ class CircleView: SpringView {
     }
     */
     
-    
+    weak var delegate: CircleViewDelegate?
     var circleLayer: CAShapeLayer!
     var label: UILabel!
+     var text: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,27 +36,40 @@ class CircleView: SpringView {
         // The path should be the entire circle.
         let circlePath : UIBezierPath!
         circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.width - 5)/2, startAngle: 0.0, endAngle: CGFloat(M_PI * 2.0), clockwise: true)
-        circlePath.stroke()
+
         // Setup the CAShapeLayer with the path, colors, and line width
         circleLayer = CAShapeLayer()
         circleLayer.path = circlePath.cgPath
-        circleLayer.lineWidth = 5.0;
+        circleLayer.lineWidth = 1.0;
         circleLayer.strokeColor = UIColor.blue.cgColor
         circleLayer.fillColor = UIColor.clear.cgColor
         
         // Don't draw the circle initially
-        circleLayer.strokeEnd = 0.0
+//        circleLayer.strokeEnd = 0.0
         
         // Add the circleLayer to the view's layer's sublayers
         
         label = UILabel(frame: CGRect(x: 0.0 , y: frame.size.height/2.0 - 18.0, width: (frame.size.width), height: 36.0))
         label.textColor = UIColor.blue
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 13.0)
+        label.font = UIFont.boldSystemFont(ofSize: 11.0)
         label.numberOfLines = 2
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        
+        self.addGestureRecognizer(tap)
+        
+        self.isUserInteractionEnabled = true
   
         
     }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        delegate?.circleTapped(self)
+    }
+    
+    
     
     override func layoutSubviews()
     {
@@ -66,14 +84,11 @@ class CircleView: SpringView {
     func setLabelText(_ text: String?) {
         
         self.label.text = text
+        self.text = text
         print(self.label.text)
     }
     
-    func animateCircle() {
-        self.animation = "squeezeUp"
-        self.animate()
-        
-    }
+  
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

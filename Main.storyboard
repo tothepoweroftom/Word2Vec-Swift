@@ -66,7 +66,26 @@
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="USN-A5-NvI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCI-v9-qvL">
+                                <rect key="frame" x="16" y="20" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="c48-xi-Ymc"/>
+                                    <constraint firstAttribute="width" constant="46" id="chm-7e-Tyd"/>
+                                </constraints>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.13137446559999999" green="0.13186553179999999" blue="0.13333873060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="b0M-zh-yZ1" kind="showDetail" action="showViewController:sender:" id="Nr2-jL-Bra"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kCI-v9-qvL" firstAttribute="leading" secondItem="uWS-tX-kf6" secondAttribute="leading" constant="16" id="anr-1z-2vW"/>
+                            <constraint firstItem="kCI-v9-qvL" firstAttribute="top" secondItem="uWS-tX-kf6" secondAttribute="top" id="whU-LF-GfR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uWS-tX-kf6"/>
                     </view>
                 </viewController>
