@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b0M-zh-yZ1">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="MT3-mK-iTq">
+            <objects>
+                <viewController id="b0M-zh-yZ1" customClass="ViewController" customModule="Word2Vec_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="Ncb-qb-tTg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Word" borderStyle="line" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="JQg-J4-qSV">
+                                <rect key="frame" x="87" y="313" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="e7W-mS-Mzu"/>
+                                    <constraint firstAttribute="width" constant="200" id="rfH-l3-nZn"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="setSeedText:" destination="b0M-zh-yZ1" eventType="editingDidEnd" id="DNd-Sy-BPZ"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore the connections between words. Enter a word below to begin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONr-8B-7WE">
+                                <rect key="frame" x="32" y="221" width="311" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="KGf-H7-5mm"/>
+                                    <constraint firstAttribute="width" constant="311" id="NKV-BQ-NfC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ONr-8B-7WE" firstAttribute="centerX" secondItem="Ncb-qb-tTg" secondAttribute="centerX" id="0Ph-pS-KhG"/>
+                            <constraint firstItem="JQg-J4-qSV" firstAttribute="centerX" secondItem="Ncb-qb-tTg" secondAttribute="centerX" id="AoV-xa-2Od"/>
+                            <constraint firstItem="JQg-J4-qSV" firstAttribute="top" secondItem="ONr-8B-7WE" secondAttribute="bottom" constant="8" id="Wul-wT-eVn"/>
+                            <constraint firstItem="JQg-J4-qSV" firstAttribute="centerY" secondItem="Ncb-qb-tTg" secondAttribute="centerY" id="xPs-Qh-EYr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eVL-Y9-odM"/>
+                    </view>
+                    <connections>
+                        <segue destination="Hye-4S-GRB" kind="show" identifier="dataSegue" id="3Rs-Nl-2Lw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I2N-hE-6Gs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="693.60000000000002" y="-197.45127436281859"/>
+        </scene>
+        <!--Data View Controller-->
+        <scene sceneID="N2V-zU-MBz">
+            <objects>
+                <viewController id="Hye-4S-GRB" customClass="DataViewController" customModule="Word2Vec_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="USN-A5-NvI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="uWS-tX-kf6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abV-Ew-8ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1542" y="-185"/>
+        </scene>
+    </scenes>
+</document>
